@@ -7,24 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		EB9E62772B91965B00C49EAF /* Photoshoot_ImportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62762B91965B00C49EAF /* Photoshoot_ImportApp.swift */; };
-		EB9E62792B91965B00C49EAF /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62782B91965B00C49EAF /* ContentView.swift */; };
+		EB4747D42B9429CE000F0CF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB4747D32B9429CE000F0CF7 /* LICENSE */; };
+		EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69650B2B95163A00F91660 /* SettingsTests.swift */; };
+		EB9B821F2B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
+		EB9B82202B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
+		EB9E62772B91965B00C49EAF /* PhotoshootImportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */; };
+		EB9E62792B91965B00C49EAF /* ImportPhotoshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */; };
 		EB9E627B2B91965D00C49EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9E627A2B91965D00C49EAF /* Assets.xcassets */; };
 		EB9E627E2B91965D00C49EAF /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9E627D2B91965D00C49EAF /* Preview Assets.xcassets */; };
-		EB9E62892B91965D00C49EAF /* Photoshoot_ImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62882B91965D00C49EAF /* Photoshoot_ImportTests.swift */; };
-		EB9E62932B91965D00C49EAF /* Photoshoot_ImportUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62922B91965D00C49EAF /* Photoshoot_ImportUITests.swift */; };
-		EB9E62952B91965D00C49EAF /* Photoshoot_ImportUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62942B91965D00C49EAF /* Photoshoot_ImportUITestsLaunchTests.swift */; };
+		EB9E62892B91965D00C49EAF /* PhotoshootImportTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62882B91965D00C49EAF /* PhotoshootImportTests.swift */; };
+		EBABE2222B9232FF00514928 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2212B9232FF00514928 /* FileUtils.swift */; };
+		EBABE2252B92332900514928 /* ComposableArchitecture in Frameworks */ = {isa = PBXBuildFile; productRef = EBABE2242B92332900514928 /* ComposableArchitecture */; };
+		EBABE2272B9238A400514928 /* ExifTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2262B9238A400514928 /* ExifTool.swift */; };
+		EBABE22A2B9238BC00514928 /* ExifTool in Frameworks */ = {isa = PBXBuildFile; productRef = EBABE2292B9238BC00514928 /* ExifTool */; };
+		EBABE22D2B9245C200514928 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE22C2B9245C200514928 /* SettingsView.swift */; };
+		EBABE2302B92472200514928 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE22F2B92472200514928 /* Settings.swift */; };
+		EBABE2332B92549E00514928 /* ImportPhotoshoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2322B92549E00514928 /* ImportPhotoshoot.swift */; };
+		EBABE2352B926A9400514928 /* FormatParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2342B926A9400514928 /* FormatParser.swift */; };
+		EBABE2362B9270DC00514928 /* FormatParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2342B926A9400514928 /* FormatParser.swift */; };
+		EBABE2372B9270E300514928 /* ImportPhotoshoot.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2322B92549E00514928 /* ImportPhotoshoot.swift */; };
+		EBABE2382B9270E600514928 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE22F2B92472200514928 /* Settings.swift */; };
+		EBABE2392B9270EE00514928 /* FileUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2212B9232FF00514928 /* FileUtils.swift */; };
+		EBABE23A2B9270F100514928 /* ExifTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE2262B9238A400514928 /* ExifTool.swift */; };
+		EBABE23E2B93DF8A00514928 /* FormatParserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBABE23D2B93DF8A00514928 /* FormatParserTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		EB9E62852B91965D00C49EAF /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = EB9E626B2B91965B00C49EAF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = EB9E62722B91965B00C49EAF;
-			remoteInfo = "Photoshoot Import";
-		};
-		EB9E628F2B91965D00C49EAF /* PBXContainerItemProxy */ = {
+		EBABE23F2B93E6E900514928 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = EB9E626B2B91965B00C49EAF /* Project object */;
 			proxyType = 1;
@@ -34,17 +43,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		EB4747D32B9429CE000F0CF7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		EB69650A2B950A6000F91660 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		EB69650B2B95163A00F91660 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		EB9B821E2B9680AF005F198D /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		EB9E62732B91965B00C49EAF /* Photoshoot Import.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photoshoot Import.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB9E62762B91965B00C49EAF /* Photoshoot_ImportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photoshoot_ImportApp.swift; sourceTree = "<group>"; };
-		EB9E62782B91965B00C49EAF /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoshootImportApp.swift; sourceTree = "<group>"; };
+		EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPhotoshootView.swift; sourceTree = "<group>"; };
 		EB9E627A2B91965D00C49EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB9E627D2B91965D00C49EAF /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		EB9E627F2B91965D00C49EAF /* Photoshoot_Import.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Photoshoot_Import.entitlements; sourceTree = "<group>"; };
-		EB9E62842B91965D00C49EAF /* Photoshoot ImportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photoshoot ImportTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB9E62882B91965D00C49EAF /* Photoshoot_ImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photoshoot_ImportTests.swift; sourceTree = "<group>"; };
-		EB9E628E2B91965D00C49EAF /* Photoshoot ImportUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Photoshoot ImportUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		EB9E62922B91965D00C49EAF /* Photoshoot_ImportUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photoshoot_ImportUITests.swift; sourceTree = "<group>"; };
-		EB9E62942B91965D00C49EAF /* Photoshoot_ImportUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Photoshoot_ImportUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		EB9E62842B91965D00C49EAF /* PhotoshootImportTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PhotoshootImportTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9E62882B91965D00C49EAF /* PhotoshootImportTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoshootImportTests.swift; sourceTree = "<group>"; };
+		EBABE2212B9232FF00514928 /* FileUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileUtils.swift; sourceTree = "<group>"; };
+		EBABE2262B9238A400514928 /* ExifTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExifTool.swift; sourceTree = "<group>"; };
+		EBABE22C2B9245C200514928 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EBABE22F2B92472200514928 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		EBABE2322B92549E00514928 /* ImportPhotoshoot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPhotoshoot.swift; sourceTree = "<group>"; };
+		EBABE2342B926A9400514928 /* FormatParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatParser.swift; sourceTree = "<group>"; };
+		EBABE23C2B92731C00514928 /* PhotoshootImport.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhotoshootImport.entitlements; sourceTree = "<group>"; };
+		EBABE23D2B93DF8A00514928 /* FormatParserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormatParserTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,17 +69,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EBABE22A2B9238BC00514928 /* ExifTool in Frameworks */,
+				EBABE2252B92332900514928 /* ComposableArchitecture in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EB9E62812B91965D00C49EAF /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB9E628B2B91965D00C49EAF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -75,9 +87,13 @@
 		EB9E626A2B91965B00C49EAF = {
 			isa = PBXGroup;
 			children = (
-				EB9E62752B91965B00C49EAF /* Photoshoot Import */,
-				EB9E62872B91965D00C49EAF /* Photoshoot ImportTests */,
-				EB9E62912B91965D00C49EAF /* Photoshoot ImportUITests */,
+				EBABE2312B92548B00514928 /* ImportPhotoshoot */,
+				EBABE22E2B92471300514928 /* Settings */,
+				EBABE2202B9232DD00514928 /* Utils */,
+				EB9E62752B91965B00C49EAF /* PhotoshootImport */,
+				EB9E62872B91965D00C49EAF /* PhotoshootImportTests */,
+				EB69650A2B950A6000F91660 /* README.md */,
+				EB4747D32B9429CE000F0CF7 /* LICENSE */,
 				EB9E62742B91965B00C49EAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -86,22 +102,20 @@
 			isa = PBXGroup;
 			children = (
 				EB9E62732B91965B00C49EAF /* Photoshoot Import.app */,
-				EB9E62842B91965D00C49EAF /* Photoshoot ImportTests.xctest */,
-				EB9E628E2B91965D00C49EAF /* Photoshoot ImportUITests.xctest */,
+				EB9E62842B91965D00C49EAF /* PhotoshootImportTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		EB9E62752B91965B00C49EAF /* Photoshoot Import */ = {
+		EB9E62752B91965B00C49EAF /* PhotoshootImport */ = {
 			isa = PBXGroup;
 			children = (
-				EB9E62762B91965B00C49EAF /* Photoshoot_ImportApp.swift */,
-				EB9E62782B91965B00C49EAF /* ContentView.swift */,
+				EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */,
 				EB9E627A2B91965D00C49EAF /* Assets.xcassets */,
-				EB9E627F2B91965D00C49EAF /* Photoshoot_Import.entitlements */,
+				EBABE23C2B92731C00514928 /* PhotoshootImport.entitlements */,
 				EB9E627C2B91965D00C49EAF /* Preview Content */,
 			);
-			path = "Photoshoot Import";
+			path = PhotoshootImport;
 			sourceTree = "<group>";
 		};
 		EB9E627C2B91965D00C49EAF /* Preview Content */ = {
@@ -112,21 +126,43 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		EB9E62872B91965D00C49EAF /* Photoshoot ImportTests */ = {
+		EB9E62872B91965D00C49EAF /* PhotoshootImportTests */ = {
 			isa = PBXGroup;
 			children = (
-				EB9E62882B91965D00C49EAF /* Photoshoot_ImportTests.swift */,
+				EBABE23D2B93DF8A00514928 /* FormatParserTests.swift */,
+				EB9E62882B91965D00C49EAF /* PhotoshootImportTests.swift */,
+				EB69650B2B95163A00F91660 /* SettingsTests.swift */,
 			);
-			path = "Photoshoot ImportTests";
+			path = PhotoshootImportTests;
 			sourceTree = "<group>";
 		};
-		EB9E62912B91965D00C49EAF /* Photoshoot ImportUITests */ = {
+		EBABE2202B9232DD00514928 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				EB9E62922B91965D00C49EAF /* Photoshoot_ImportUITests.swift */,
-				EB9E62942B91965D00C49EAF /* Photoshoot_ImportUITestsLaunchTests.swift */,
+				EB9B821E2B9680AF005F198D /* DateUtils.swift */,
+				EBABE2212B9232FF00514928 /* FileUtils.swift */,
+				EBABE2262B9238A400514928 /* ExifTool.swift */,
+				EBABE2342B926A9400514928 /* FormatParser.swift */,
 			);
-			path = "Photoshoot ImportUITests";
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		EBABE22E2B92471300514928 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				EBABE22F2B92472200514928 /* Settings.swift */,
+				EBABE22C2B9245C200514928 /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		EBABE2312B92548B00514928 /* ImportPhotoshoot */ = {
+			isa = PBXGroup;
+			children = (
+				EBABE2322B92549E00514928 /* ImportPhotoshoot.swift */,
+				EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */,
+			);
+			path = ImportPhotoshoot;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,13 +181,17 @@
 			dependencies = (
 			);
 			name = "Photoshoot Import";
+			packageProductDependencies = (
+				EBABE2242B92332900514928 /* ComposableArchitecture */,
+				EBABE2292B9238BC00514928 /* ExifTool */,
+			);
 			productName = "Photoshoot Import";
 			productReference = EB9E62732B91965B00C49EAF /* Photoshoot Import.app */;
 			productType = "com.apple.product-type.application";
 		};
-		EB9E62832B91965D00C49EAF /* Photoshoot ImportTests */ = {
+		EB9E62832B91965D00C49EAF /* PhotoshootImportTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB9E629B2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot ImportTests" */;
+			buildConfigurationList = EB9E629B2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "PhotoshootImportTests" */;
 			buildPhases = (
 				EB9E62802B91965D00C49EAF /* Sources */,
 				EB9E62812B91965D00C49EAF /* Frameworks */,
@@ -160,30 +200,12 @@
 			buildRules = (
 			);
 			dependencies = (
-				EB9E62862B91965D00C49EAF /* PBXTargetDependency */,
+				EBABE2402B93E6E900514928 /* PBXTargetDependency */,
 			);
-			name = "Photoshoot ImportTests";
+			name = PhotoshootImportTests;
 			productName = "Photoshoot ImportTests";
-			productReference = EB9E62842B91965D00C49EAF /* Photoshoot ImportTests.xctest */;
+			productReference = EB9E62842B91965D00C49EAF /* PhotoshootImportTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		EB9E628D2B91965D00C49EAF /* Photoshoot ImportUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = EB9E629E2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot ImportUITests" */;
-			buildPhases = (
-				EB9E628A2B91965D00C49EAF /* Sources */,
-				EB9E628B2B91965D00C49EAF /* Frameworks */,
-				EB9E628C2B91965D00C49EAF /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				EB9E62902B91965D00C49EAF /* PBXTargetDependency */,
-			);
-			name = "Photoshoot ImportUITests";
-			productName = "Photoshoot ImportUITests";
-			productReference = EB9E628E2B91965D00C49EAF /* Photoshoot ImportUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -202,13 +224,9 @@
 						CreatedOnToolsVersion = 15.2;
 						TestTargetID = EB9E62722B91965B00C49EAF;
 					};
-					EB9E628D2B91965D00C49EAF = {
-						CreatedOnToolsVersion = 15.2;
-						TestTargetID = EB9E62722B91965B00C49EAF;
-					};
 				};
 			};
-			buildConfigurationList = EB9E626E2B91965B00C49EAF /* Build configuration list for PBXProject "Photoshoot Import" */;
+			buildConfigurationList = EB9E626E2B91965B00C49EAF /* Build configuration list for PBXProject "PhotoshootImport" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -217,13 +235,16 @@
 				Base,
 			);
 			mainGroup = EB9E626A2B91965B00C49EAF;
+			packageReferences = (
+				EBABE2232B92332900514928 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */,
+				EBABE2282B9238BC00514928 /* XCRemoteSwiftPackageReference "ExifTool" */,
+			);
 			productRefGroup = EB9E62742B91965B00C49EAF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				EB9E62722B91965B00C49EAF /* Photoshoot Import */,
-				EB9E62832B91965D00C49EAF /* Photoshoot ImportTests */,
-				EB9E628D2B91965D00C49EAF /* Photoshoot ImportUITests */,
+				EB9E62832B91965D00C49EAF /* PhotoshootImportTests */,
 			);
 		};
 /* End PBXProject section */
@@ -233,19 +254,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB4747D42B9429CE000F0CF7 /* LICENSE in Resources */,
 				EB9E627E2B91965D00C49EAF /* Preview Assets.xcassets in Resources */,
 				EB9E627B2B91965D00C49EAF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		EB9E62822B91965D00C49EAF /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB9E628C2B91965D00C49EAF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -259,8 +274,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9E62792B91965B00C49EAF /* ContentView.swift in Sources */,
-				EB9E62772B91965B00C49EAF /* Photoshoot_ImportApp.swift in Sources */,
+				EBABE2352B926A9400514928 /* FormatParser.swift in Sources */,
+				EBABE2302B92472200514928 /* Settings.swift in Sources */,
+				EBABE22D2B9245C200514928 /* SettingsView.swift in Sources */,
+				EBABE2272B9238A400514928 /* ExifTool.swift in Sources */,
+				EB9B821F2B9680AF005F198D /* DateUtils.swift in Sources */,
+				EB9E62792B91965B00C49EAF /* ImportPhotoshootView.swift in Sources */,
+				EB9E62772B91965B00C49EAF /* PhotoshootImportApp.swift in Sources */,
+				EBABE2222B9232FF00514928 /* FileUtils.swift in Sources */,
+				EBABE2332B92549E00514928 /* ImportPhotoshoot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,31 +290,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EB9E62892B91965D00C49EAF /* Photoshoot_ImportTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		EB9E628A2B91965D00C49EAF /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB9E62952B91965D00C49EAF /* Photoshoot_ImportUITestsLaunchTests.swift in Sources */,
-				EB9E62932B91965D00C49EAF /* Photoshoot_ImportUITests.swift in Sources */,
+				EBABE23E2B93DF8A00514928 /* FormatParserTests.swift in Sources */,
+				EBABE2362B9270DC00514928 /* FormatParser.swift in Sources */,
+				EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */,
+				EBABE2372B9270E300514928 /* ImportPhotoshoot.swift in Sources */,
+				EB9B82202B9680AF005F198D /* DateUtils.swift in Sources */,
+				EBABE23A2B9270F100514928 /* ExifTool.swift in Sources */,
+				EBABE2382B9270E600514928 /* Settings.swift in Sources */,
+				EB9E62892B91965D00C49EAF /* PhotoshootImportTests.swift in Sources */,
+				EBABE2392B9270EE00514928 /* FileUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		EB9E62862B91965D00C49EAF /* PBXTargetDependency */ = {
+		EBABE2402B93E6E900514928 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = EB9E62722B91965B00C49EAF /* Photoshoot Import */;
-			targetProxy = EB9E62852B91965D00C49EAF /* PBXContainerItemProxy */;
-		};
-		EB9E62902B91965D00C49EAF /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = EB9E62722B91965B00C49EAF /* Photoshoot Import */;
-			targetProxy = EB9E628F2B91965D00C49EAF /* PBXContainerItemProxy */;
+			targetProxy = EBABE23F2B93E6E900514928 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -420,22 +436,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Photoshoot Import/Photoshoot_Import.entitlements";
+				CODE_SIGN_ENTITLEMENTS = PhotoshootImport/PhotoshootImport.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Photoshoot Import/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoshootImport/Preview Content\"";
 				DEVELOPMENT_TEAM = A2M8QX7ZCM;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Photoshoot Import";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Clément Mangin";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clementmangin.PhotoshootImport.Photoshoot-Import";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clementmangin.PhotoshootImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -447,22 +466,25 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = "Photoshoot Import/Photoshoot_Import.entitlements";
+				CODE_SIGN_ENTITLEMENTS = PhotoshootImport/PhotoshootImport.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"Photoshoot Import/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"PhotoshootImport/Preview Content\"";
 				DEVELOPMENT_TEAM = A2M8QX7ZCM;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_CFBundleDisplayName = "Photoshoot Import";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.photography";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "Copyright © 2020 Clément Mangin";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clementmangin.PhotoshootImport.Photoshoot-Import";
+				PRODUCT_BUNDLE_IDENTIFIER = com.clementmangin.PhotoshootImport;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -507,44 +529,10 @@
 			};
 			name = Release;
 		};
-		EB9E629F2B91965D00C49EAF /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A2M8QX7ZCM;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clementmangin.PhotoshootImport.Photoshoot-ImportUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Photoshoot Import";
-			};
-			name = Debug;
-		};
-		EB9E62A02B91965D00C49EAF /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = A2M8QX7ZCM;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.clementmangin.PhotoshootImport.Photoshoot-ImportUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = "Photoshoot Import";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		EB9E626E2B91965B00C49EAF /* Build configuration list for PBXProject "Photoshoot Import" */ = {
+		EB9E626E2B91965B00C49EAF /* Build configuration list for PBXProject "PhotoshootImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9E62962B91965D00C49EAF /* Debug */,
@@ -562,7 +550,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB9E629B2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot ImportTests" */ = {
+		EB9E629B2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "PhotoshootImportTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9E629C2B91965D00C49EAF /* Debug */,
@@ -571,16 +559,39 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB9E629E2B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot ImportUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				EB9E629F2B91965D00C49EAF /* Debug */,
-				EB9E62A02B91965D00C49EAF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		EBABE2232B92332900514928 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/pointfreeco/swift-composable-architecture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.9.0;
+			};
+		};
+		EBABE2282B9238BC00514928 /* XCRemoteSwiftPackageReference "ExifTool" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/clementmangin/ExifTool.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		EBABE2242B92332900514928 /* ComposableArchitecture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBABE2232B92332900514928 /* XCRemoteSwiftPackageReference "swift-composable-architecture" */;
+			productName = ComposableArchitecture;
+		};
+		EBABE2292B9238BC00514928 /* ExifTool */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = EBABE2282B9238BC00514928 /* XCRemoteSwiftPackageReference "ExifTool" */;
+			productName = ExifTool;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = EB9E626B2B91965B00C49EAF /* Project object */;
 }
