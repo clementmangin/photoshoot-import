@@ -1,7 +1,7 @@
 
 #  Photoshoot Import
 
-This macOS application is designed to import photos (of any format) from one source folder to a destination folder, renamming files and putting them into subfolders according to the structure of your choosing.
+This macOS application is designed to import photos (of any format) from one source folder to a destination folder, renaming files and putting them into subfolders according to the structure of your choosing.
 
 It relies on [ExifTool](https://exiftool.org/), to access the photos' metadata so they can be used in the process.
 
@@ -112,6 +112,16 @@ An obvious case of name conflict would occur if you tried to import two photos u
 For instance, if **Photoshoot Import** is told to rename a file to `photo.jpeg` and import it into a folder where `photo.jpeg` already exists, it will try to import the file by renaming it `photo 1.jpeg`.  If `photo 1.jpeg` also already exists, it will try to import the file by renaming it to `photo 2.jpeg`, and so on, each time incrementing the number by 1 until the name is finally available and the file can be imported.
 
 > **Note:** It is preferable to explicitly set a sequence number in the output format, as it can avoid lots of failed attemps at writing files on disk, and thus improve performances.
+
+## Test and build
+
+The application can be tested via the following command:
+
+`xcodebuild -scheme PhotoshootImport -target "PhotoshootImportTests" test`
+
+The app can be built via the following command:
+
+`xcodebuild -scheme PhotoshootImport -target "PhotoshootImport archive`
 
 ## License
 
