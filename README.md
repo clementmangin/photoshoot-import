@@ -40,7 +40,7 @@ A variable is surrounded by opening and closing `'#'` characters, taking the for
 File variables refer to properties of the source file on the filesystem, and start with `file:<property>`, where `<property>` can be anything from the list below. Examples are given for a file sitting at `folder/subfolder/image.jpg`, that was created on 2024-01-01 12:34:56 and modified on 2024-02-10 01:02:03
 
 | Property | Description | Value |
-|----------|:-------------:|------:|
+|----------|-------------|------|
 | `name` | The complete, original source file name | `image.jpg` |
 | `ext`   |  The source file extension | `jpg` |
 | `namenoext` | The source file name, without extension | `image` |
