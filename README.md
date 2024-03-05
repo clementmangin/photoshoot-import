@@ -7,10 +7,12 @@ your choosing.
 It relies on ExifTool, to access the photos' metadata so they can be used
 in the process.
 
+It was developed on my free time as a mean to play with Swift and The Composable Architecture.
+I hope I did them justice.
+
 ## Installation
 
-Just download the **Photoshoot Import** .dmg file and copy the application in your Applications
-folder.
+Checkout this repository and [build](#test-and-build) the app with Xcode.
 
 **Photoshoot Import** requires ExifTool, which can be installed using their installer (available for
   download on their [website](https://exiftool.org/)), or via [Homebrew](https://brew.sh/) by typing
@@ -130,7 +132,7 @@ structure in the destination folder:
 ```
 + import/
     + photos/
-        + photo_<filename> ```
+        + photo_<filename>
 ```
 
 > **Note:** If the evalution of a variable returns a value that contains `'/'` characters, they will
@@ -175,6 +177,15 @@ The app can be built via the following command:
 
 `xcodebuild -scheme PhotoshootImport -target "PhotoshootImport archive -archivePath dist/PhotoshootImport.xcarchive`
 
+The .app will be available at `dist/PhotoshootImport.xcarchive/Products/Applications/PhotoshootImport.app`.
+
+## Credits
+
+**Photoshoot Import** makes use of the following software:
+* [ExifTool](https://exiftool.org/) © Phil Harvey
+* [ExifTool Swift](https://github.com/hlemai/ExifTool) © Hervé Lemai
+* [The Composable Architecture](https://github.com/pointfreeco/swift-composable-architecture) © Point-Free, Inc.
+
 ## License
 
-See [LICENSE](./LICENSE) file.
+This software is licensed under the BSD 2-Clause license. See [LICENSE](./LICENSE) file.
