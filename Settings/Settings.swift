@@ -16,7 +16,7 @@ struct SettingsFeature {
         var exiftoolPath: String = ""
     }
 
-    enum Action: BindableAction {
+    enum Action: BindableAction, Equatable {
         case binding(BindingAction<SettingsFeature.State>)
         case screenAppeared
         case exiftoolPathUpdated(path: String)

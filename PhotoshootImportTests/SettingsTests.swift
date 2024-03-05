@@ -11,7 +11,7 @@ import XCTest
 @MainActor
 final class SettingsTests: XCTestCase {
 
-    func testScreenAppearedSearchExecutable() async {
+    func testExecutableNotFoundOnScreenAppeared() async {
         let store = TestStore(initialState: SettingsFeature.State()) {
             SettingsFeature()
         } withDependencies: {
@@ -25,15 +25,13 @@ final class SettingsTests: XCTestCase {
         }
 
         await store.send(.screenAppeared)
-
-        await store.receive(\.searchExiftoolRequested)
-
+        await store.receive(.searchExiftoolRequested(userRequested: false))
         await store.receive(\.exiftoolPathUpdated) {
             $0.exiftoolPath = "/usr/local/bin/exiftool"
         }
     }
 
-    func testScreenAppearedLoadExecutable() async {
+    func testExecutableFoundOnScreenAppeared() async {
         let store = TestStore(initialState: SettingsFeature.State()) {
             SettingsFeature()
         } withDependencies: {
@@ -47,7 +45,26 @@ final class SettingsTests: XCTestCase {
         }
 
         await store.send(.screenAppeared)
+        await store.receive(\.exiftoolPathUpdated) {
+            $0.exiftoolPath = "/usr/local/bin/exiftool"
+        }
+    }
 
+    func testSearchButtonExecutablePath() async {
+        let store = TestStore(initialState: SettingsFeature.State()) {
+            SettingsFeature()
+        } withDependencies: {
+            $0.fileUtils.searchExecutable = { _ in
+                return URL(filePath: "/usr/local/bin/exiftool")
+            }
+            $0.exiftool.loadExecutablePath = {
+                return nil
+            }
+            $0.exiftool.setExecutablePath = { _ in }
+        }
+
+        await store.send(.searchExiftoolButtonTapped)
+        await store.receive(.searchExiftoolRequested(userRequested: true))
         await store.receive(\.exiftoolPathUpdated) {
             $0.exiftoolPath = "/usr/local/bin/exiftool"
         }

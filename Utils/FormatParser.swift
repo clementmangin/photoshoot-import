@@ -40,8 +40,8 @@ struct FormatParser {
         case nameNoExt
         case ext
         case path
-        case creationDate(format: String = "yyyyMMdd")
-        case modificationDate(format: String = "yyyyMMdd")
+        case creationDate(format: String? = nil)
+        case modificationDate(format: String? = nil)
 
         var description: String {
             switch self {
@@ -54,9 +54,17 @@ struct FormatParser {
             case .path:
                 return "path"
             case .creationDate(let format):
-                return "creationdate:\(format)"
+                if let format = format {
+                    return "creationdate:\(format)"
+                } else {
+                    return "creationdate"
+                }
             case .modificationDate(let format):
-                return "modificationdate:\(format)"
+                if let format = format {
+                    return "modificationdate:\(format)"
+                } else {
+                    return "modificationdate"
+                }
             }
         }
 
@@ -78,6 +86,12 @@ struct FormatParser {
                 } else {
                     return .creationDate()
                 }
+            case "modificationdate":
+                if parts.count > 1 {
+                    return .modificationDate(format: parts[1])
+                } else {
+                    return .modificationDate()
+                }
             default:
                 throw FormatParserError.invalidFileProperty(string)
             }
@@ -86,21 +100,29 @@ struct FormatParser {
     }
 
     enum SequenceType: Equatable, Hashable, CustomStringConvertible {
-        case global(zeros: Int = 1)
-        case local(zeros: Int = 1)
+        case global(zeros: Int? = nil)
+        case local(zeros: Int? = nil)
 
         var description: String {
             switch self {
             case .global(let zeros):
-                return "global:\(zeros)"
+                if let zeros = zeros {
+                    return "global:\(zeros)"
+                } else {
+                    return "global"
+                }
             case .local(let zeros):
-                return "local:\(zeros)"
+                if let zeros = zeros {
+                    return "local:\(zeros)"
+                } else {
+                    return "local"
+                }
             }
         }
 
         static func fromString(string: String) throws -> Self {
             let parts = string.split(separator: ":", maxSplits: 1).map(String.init)
-            let zeros: Int
+            let zeros: Int?
             let sequenceType: Self
             if parts.count > 1 {
                 guard let z = Int(parts[1]) else {
@@ -108,7 +130,7 @@ struct FormatParser {
                 }
                 zeros = z
             } else {
-                zeros = 1
+                zeros = nil
             }
             switch parts[0] {
             case "global":
@@ -225,11 +247,13 @@ struct FormatParser {
                         guard let absoluteSequenceNumber = absoluteSequenceNumber else {
                             return ""
                         }
+                        let format = format ?? 1
                         return String(format: "%0\(format)d", absoluteSequenceNumber)
                     case .local(let format):
                         guard let relativeSequenceNumber = relativeSequenceNumber else {
                             return ""
                         }
+                        let format = format ?? 1
                         return String(format: "%0\(format)d", relativeSequenceNumber)
                     }
                 }
@@ -249,6 +273,7 @@ struct FormatParser {
         case .creationDate(let format):
             do {
                 let attr = try file.resourceValues(forKeys: [.creationDateKey])
+                let format = format ?? "yyyyMMdd"
                 if let date = attr.creationDate, let result = date.asString(withFormat: format) {
                     return result
                 }
@@ -259,6 +284,7 @@ struct FormatParser {
         case .modificationDate(let format):
             do {
                 let attr = try file.resourceValues(forKeys: [.contentModificationDateKey])
+                let format = format ?? "yyyyMMdd"
                 if let date = attr.contentModificationDate,
                     let result = date.asString(withFormat: format)
                 {
@@ -293,7 +319,7 @@ struct FormatParser {
         for (index, srcFile) in srcFiles.sorted(by: { $0.absoluteString < $1.absoluteString })
             .enumerated()
         {
-            let exifMetadata = exifTags.isEmpty ? [:] : try exifMethod(srcFile, exifTags)
+            let exifMetadata = exifTags.isEmpty ? [:] : try exifMethod(srcFile, Array(exifTags))
             let destFile = FormatParser.format(
                 file: srcFile, exifMetadata: exifMetadata, withFormat: format,
                 absoluteSequenceNumber: index + 1, relativeTo: destFolder)
@@ -328,16 +354,15 @@ extension Sequence where Element == FormatParser.FormatElement {
         }
     }
 
-    func exifTags() -> [String] {
-        return [String](
-            Set<String>(
-                self.reduce(into: [String]()) {
-                    switch $1 {
-                    case .exif(.property(let tag, _)):
-                        $0.append(tag)
-                    default: break
-                    }
-                }))
+    func exifTags() -> Set<String> {
+        return Set<String>(
+            self.reduce(into: [String]()) {
+                switch $1 {
+                case .exif(.property(let tag, _)):
+                    $0.append(tag)
+                default: break
+                }
+            })
     }
 
     var asString: String {
