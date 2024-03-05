@@ -11,6 +11,7 @@
 		EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69650B2B95163A00F91660 /* SettingsTests.swift */; };
 		EB9B821F2B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
 		EB9B82202B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
+		EB9B82222B96B7F1005F198D /* DateUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */; };
 		EB9E62772B91965B00C49EAF /* PhotoshootImportApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */; };
 		EB9E62792B91965B00C49EAF /* ImportPhotoshootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */; };
 		EB9E627B2B91965D00C49EAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB9E627A2B91965D00C49EAF /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		EB69650B2B95163A00F91660 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		EB9B821E2B9680AF005F198D /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		EB9E62732B91965B00C49EAF /* Photoshoot Import.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photoshoot Import.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilsTests.swift; sourceTree = "<group>"; };
 		EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoshootImportApp.swift; sourceTree = "<group>"; };
 		EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPhotoshootView.swift; sourceTree = "<group>"; };
 		EB9E627A2B91965D00C49EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 		EB9E62872B91965D00C49EAF /* PhotoshootImportTests */ = {
 			isa = PBXGroup;
 			children = (
+				EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */,
 				EBABE23D2B93DF8A00514928 /* FormatParserTests.swift */,
 				EB9E62882B91965D00C49EAF /* PhotoshootImportTests.swift */,
 				EB69650B2B95163A00F91660 /* SettingsTests.swift */,
@@ -291,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EBABE23E2B93DF8A00514928 /* FormatParserTests.swift in Sources */,
+				EB9B82222B96B7F1005F198D /* DateUtilsTests.swift in Sources */,
 				EBABE2362B9270DC00514928 /* FormatParser.swift in Sources */,
 				EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */,
 				EBABE2372B9270E300514928 /* ImportPhotoshoot.swift in Sources */,
