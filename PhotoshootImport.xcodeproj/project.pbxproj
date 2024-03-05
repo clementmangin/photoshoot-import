@@ -48,8 +48,8 @@
 		EB69650A2B950A6000F91660 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB69650B2B95163A00F91660 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
 		EB9B821E2B9680AF005F198D /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
-		EB9E62732B91965B00C49EAF /* Photoshoot Import.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Photoshoot Import.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilsTests.swift; sourceTree = "<group>"; };
+		EB9E62732B91965B00C49EAF /* PhotoshootImport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoshootImport.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB9E62762B91965B00C49EAF /* PhotoshootImportApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoshootImportApp.swift; sourceTree = "<group>"; };
 		EB9E62782B91965B00C49EAF /* ImportPhotoshootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportPhotoshootView.swift; sourceTree = "<group>"; };
 		EB9E627A2B91965D00C49EAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -103,7 +103,7 @@
 		EB9E62742B91965B00C49EAF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				EB9E62732B91965B00C49EAF /* Photoshoot Import.app */,
+				EB9E62732B91965B00C49EAF /* PhotoshootImport.app */,
 				EB9E62842B91965D00C49EAF /* PhotoshootImportTests.xctest */,
 			);
 			name = Products;
@@ -171,9 +171,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		EB9E62722B91965B00C49EAF /* Photoshoot Import */ = {
+		EB9E62722B91965B00C49EAF /* PhotoshootImport */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = EB9E62982B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot Import" */;
+			buildConfigurationList = EB9E62982B91965D00C49EAF /* Build configuration list for PBXNativeTarget "PhotoshootImport" */;
 			buildPhases = (
 				EB9E626F2B91965B00C49EAF /* Sources */,
 				EB9E62702B91965B00C49EAF /* Frameworks */,
@@ -183,13 +183,13 @@
 			);
 			dependencies = (
 			);
-			name = "Photoshoot Import";
+			name = PhotoshootImport;
 			packageProductDependencies = (
 				EBABE2242B92332900514928 /* ComposableArchitecture */,
 				EBABE2292B9238BC00514928 /* ExifTool */,
 			);
 			productName = "Photoshoot Import";
-			productReference = EB9E62732B91965B00C49EAF /* Photoshoot Import.app */;
+			productReference = EB9E62732B91965B00C49EAF /* PhotoshootImport.app */;
 			productType = "com.apple.product-type.application";
 		};
 		EB9E62832B91965D00C49EAF /* PhotoshootImportTests */ = {
@@ -246,7 +246,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				EB9E62722B91965B00C49EAF /* Photoshoot Import */,
+				EB9E62722B91965B00C49EAF /* PhotoshootImport */,
 				EB9E62832B91965D00C49EAF /* PhotoshootImportTests */,
 			);
 		};
@@ -311,7 +311,7 @@
 /* Begin PBXTargetDependency section */
 		EBABE2402B93E6E900514928 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = EB9E62722B91965B00C49EAF /* Photoshoot Import */;
+			target = EB9E62722B91965B00C49EAF /* PhotoshootImport */;
 			targetProxy = EBABE23F2B93E6E900514928 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -545,7 +545,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		EB9E62982B91965D00C49EAF /* Build configuration list for PBXNativeTarget "Photoshoot Import" */ = {
+		EB9E62982B91965D00C49EAF /* Build configuration list for PBXNativeTarget "PhotoshootImport" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				EB9E62992B91965D00C49EAF /* Debug */,
