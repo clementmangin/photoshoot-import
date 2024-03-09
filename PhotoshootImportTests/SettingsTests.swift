@@ -8,9 +8,9 @@
 import ComposableArchitecture
 import XCTest
 
-@MainActor
 final class SettingsTests: XCTestCase {
 
+    @MainActor
     func testExecutableNotFoundOnScreenAppeared() async {
         let store = TestStore(initialState: SettingsFeature.State()) {
             SettingsFeature()
@@ -31,6 +31,7 @@ final class SettingsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testExecutableFoundOnScreenAppeared() async {
         let store = TestStore(initialState: SettingsFeature.State()) {
             SettingsFeature()
@@ -50,6 +51,7 @@ final class SettingsTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testSearchButtonExecutablePath() async {
         let store = TestStore(initialState: SettingsFeature.State()) {
             SettingsFeature()

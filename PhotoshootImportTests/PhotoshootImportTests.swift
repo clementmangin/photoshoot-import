@@ -8,9 +8,9 @@
 import ComposableArchitecture
 import XCTest
 
-@MainActor
 final class PhotoshootImportTests: XCTestCase {
 
+    @MainActor
     func testSelectSourceFolder() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State()) {
             ImportPhotoshootFeature()
@@ -27,6 +27,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testEditSourceFolder() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State()) {
             ImportPhotoshootFeature()
@@ -37,6 +38,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testSelectDestinationFolder() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State()) {
             ImportPhotoshootFeature()
@@ -53,6 +55,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testEditDestinationFolder() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State()) {
             ImportPhotoshootFeature()
@@ -63,6 +66,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testOutputFormatUpdated() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State(outputFormat: "")) {
             ImportPhotoshootFeature()
@@ -73,6 +77,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testRecursiveToggleToggled() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State(recursive: true)) {
             ImportPhotoshootFeature()
@@ -87,6 +92,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testImportModeChanged() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State(importMode: .move)) {
             ImportPhotoshootFeature()
@@ -101,6 +107,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testJobReady() async {
         let store = TestStore(initialState: ImportPhotoshootFeature.State()) {
             ImportPhotoshootFeature()
@@ -116,6 +123,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testSrcFolderJobNotReady() async {
         let store = TestStore(
             initialState: ImportPhotoshootFeature.State(
@@ -133,6 +141,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testDestFolderJobNotReady() async {
         let store = TestStore(
             initialState: ImportPhotoshootFeature.State(
@@ -150,6 +159,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testFormatJobNotReady() async {
         let store = TestStore(
             initialState: ImportPhotoshootFeature.State(
@@ -167,6 +177,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testStartJobSuccess() async {
         let store = TestStore(
             initialState: ImportPhotoshootFeature.State(
@@ -204,6 +215,7 @@ final class PhotoshootImportTests: XCTestCase {
         }
     }
 
+    @MainActor
     func testStartJobError() async {
         let store = TestStore(
             initialState: ImportPhotoshootFeature.State(
