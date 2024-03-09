@@ -64,17 +64,89 @@ struct ImportPhotoshootFeature {
         }
     }
 
-    func importPhotos(
-        srcFolder: URL, destFolder: URL, outputFormat: String, importMode: ImportMode,
-        recursive: Bool
-    ) async throws -> Int {
-        let srcFiles = try self.findFiles(srcFolder, ["image/.+"], recursive)
-        let format = try FormatParser.parse(format: outputFormat)
+    private func fetchMetadata(forFiles files: [URL], exifTags: [String]) async throws -> [(
+        file: URL, metadata: [String: String]?
+    )] {
+        return try await withThrowingTaskGroup(of: (file: URL, metadata: [String: String]?).self) {
+            [getExifMetadata] taskGroup in
+            for file in files {
+                taskGroup.addTask(priority: .utility) {
+                    let metadata = try getExifMetadata(file, Array(exifTags))
+                    return (file: file, metadata: metadata)
+                }
+            }
+            return try await taskGroup.reduce(into: []) { $0.append($1) }
+        }
+    }
 
-        let filePairs = try FormatParser.prepareImport(
-            srcFiles: srcFiles, inSrcFolder: srcFolder, toDestFolder: destFolder,
-            withFormat: format, exifMethod: getExifMetadata)
+    private func prepareFilePairs(
+        filesWithMetadata: [(file: URL, metadata: [String: String]?)],
+        format: [FormatParser.FormatElement], destFolder: URL
+    ) async -> [(src: URL, dest: URL)] {
 
+        return await withCheckedContinuation { continuation in
+            Task(priority: .userInitiated) {
+                let formatContainsRelativeSequence = format.contains {
+                    switch $0 {
+                    case .sequence(type: .local(_)):
+                        return true
+                    default:
+                        return false
+                    }
+                }
+                var fileRanks: [URL: Int] = [:]
+                var filePairs: [(src: URL, dest: URL)] = []
+                for (index, srcFileWithMetadata) in filesWithMetadata.sorted(by: {
+                    $0.file.absoluteString < $1.file.absoluteString
+                })
+                .enumerated() {
+                    let srcFile = srcFileWithMetadata.file
+                    let exifMetadata = srcFileWithMetadata.metadata
+                    let destFile = FormatParser.format(
+                        file: srcFile, exifMetadata: exifMetadata, withFormat: format,
+                        absoluteSequenceNumber: index + 1, relativeTo: destFolder)
+
+                    if formatContainsRelativeSequence {
+                        let rank = fileRanks[destFile.deletingLastPathComponent(), default: 0] + 1
+                        fileRanks[destFile.deletingLastPathComponent()] = rank
+                        let sequencedDestFile = FormatParser.format(
+                            file: srcFile, exifMetadata: exifMetadata, withFormat: format,
+                            absoluteSequenceNumber: index + 1, relativeSequenceNumber: rank,
+                            relativeTo: destFolder
+                        )
+                        filePairs.append((src: srcFile, dest: sequencedDestFile))
+                    } else {
+                        filePairs.append((src: srcFile, dest: destFile))
+                    }
+                }
+                continuation.resume(returning: filePairs)
+            }
+        }
+    }
+
+    private func prepareImport(
+        srcFiles: [URL], inSrcFolder srcFolder: URL, toDestFolder destFolder: URL,
+        withFormat format: [FormatParser.FormatElement],
+        exifMethod: (_ path: URL, _ tags: [String]) throws -> [String: String]
+    ) async throws -> [(src: URL, dest: URL)] {
+        let exifTags = Array(format.exifTags())
+
+        // Fetch metadata (or just pretend, if the format doesn't require it)
+        let srcFilesWithMetadata: [(file: URL, metadata: [String: String]?)]
+        if !exifTags.isEmpty {
+            srcFilesWithMetadata = try await fetchMetadata(forFiles: srcFiles, exifTags: exifTags)
+        } else {
+            srcFilesWithMetadata = srcFiles.map { (file: $0, metadata: nil) }
+        }
+
+        // Pair source files with destination files according to the given format
+        let filePairs = await prepareFilePairs(
+            filesWithMetadata: srcFilesWithMetadata, format: format, destFolder: destFolder)
+
+        return filePairs
+    }
+
+    private func importFiles(pairs: [(src: URL, dest: URL)], importMode: ImportMode) async {
         let importFunction: (_ at: URL, _ to: URL) throws -> Void
         switch importMode {
         case .copy:
@@ -84,27 +156,46 @@ struct ImportPhotoshootFeature {
             importFunction = moveFile
             break
         }
+        return await withCheckedContinuation { continuation in
+            Task(priority: .utility) {
+                // Optimization: builds a set of unique folders to create (if any),
+                // instead of attempting to create the same folders multiple times
+                try Set(pairs.map { $1.deletingLastPathComponent() }).forEach(createDirectory)
 
-        // Optimization: builds a set of unique folders to create (if any),
-        // instead of attempting to create the same folders multiple times
-        try Set(filePairs.map { $1.deletingLastPathComponent() }).forEach(createDirectory)
-
-        for (src, dest) in filePairs {
-            do {
-                try importFunction(src, dest)
-            } catch let error as CocoaError where error.code == .fileWriteFileExists {
-                var success = false
-                var sequence = 1
-                repeat {
+                for (src, dest) in pairs {
                     do {
-                        try importFunction(src, dest.append(sequence: sequence))
-                        success = true
+                        try importFunction(src, dest)
                     } catch let error as CocoaError where error.code == .fileWriteFileExists {
-                        sequence += 1
+                        var success = false
+                        var sequence = 1
+                        repeat {
+                            do {
+                                try importFunction(src, dest.append(sequence: sequence))
+                                success = true
+                            } catch let error as CocoaError where error.code == .fileWriteFileExists
+                            {
+                                sequence += 1
+                            }
+                        } while !success
                     }
-                } while !success
+                }
+                continuation.resume()
             }
         }
+    }
+
+    private func importPhotos(
+        srcFolder: URL, destFolder: URL, outputFormat: String, importMode: ImportMode,
+        recursive: Bool
+    ) async throws -> Int {
+        let srcFiles = try self.findFiles(srcFolder, ["image/.+"], recursive)
+        let format = try FormatParser.parse(format: outputFormat)
+
+        let filePairs = try await prepareImport(
+            srcFiles: srcFiles, inSrcFolder: srcFolder, toDestFolder: destFolder,
+            withFormat: format, exifMethod: getExifMetadata)
+
+        await importFiles(pairs: filePairs, importMode: importMode)
 
         return filePairs.count
     }

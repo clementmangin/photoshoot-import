@@ -215,7 +215,7 @@ struct FormatParser {
     }
 
     public static func format(
-        file: URL, exifMetadata exif: [String: String], withFormat format: [FormatElement],
+        file: URL, exifMetadata exif: [String: String]? = nil, withFormat format: [FormatElement],
         absoluteSequenceNumber: Int? = nil, relativeSequenceNumber: Int? = nil,
         relativeTo: URL? = nil
     ) -> URL {
@@ -225,6 +225,7 @@ struct FormatParser {
                 case .constant(let value):
                     return value
                 case .exif(.property(let tag, let format)):
+                    guard let exif = exif else { return "" }
                     if let value = exif[tag] {
                         if let format = format,
                             let date = value.asDate(withFormat: "yyyy:MM:dd HH:mm:ss"),
@@ -295,50 +296,6 @@ struct FormatParser {
                 return ""
             }
         }
-    }
-
-    public static func prepareImport(
-        srcFiles: [URL], inSrcFolder srcFolder: URL, toDestFolder destFolder: URL,
-        withFormat format: [FormatElement],
-        exifMethod: (_ path: URL, _ tags: [String]) throws -> [String: String]
-    ) throws -> [(src: URL, dest: URL)] {
-        let exifTags = format.exifTags()
-
-        var fileRanks: [URL: Int] = [:]
-        var filePairs: [(src: URL, dest: URL)] = []
-
-        let formatContainsRelativeSequence = format.contains {
-            switch $0 {
-            case .sequence(type: .local(_)):
-                return true
-            default:
-                return false
-            }
-        }
-
-        for (index, srcFile) in srcFiles.sorted(by: { $0.absoluteString < $1.absoluteString })
-            .enumerated()
-        {
-            let exifMetadata = exifTags.isEmpty ? [:] : try exifMethod(srcFile, Array(exifTags))
-            let destFile = FormatParser.format(
-                file: srcFile, exifMetadata: exifMetadata, withFormat: format,
-                absoluteSequenceNumber: index + 1, relativeTo: destFolder)
-
-            if formatContainsRelativeSequence {
-                let rank = fileRanks[destFile.deletingLastPathComponent(), default: 0] + 1
-                fileRanks[destFile.deletingLastPathComponent()] = rank
-                let sequencedDestFile = FormatParser.format(
-                    file: srcFile, exifMetadata: exifMetadata, withFormat: format,
-                    absoluteSequenceNumber: index + 1, relativeSequenceNumber: rank,
-                    relativeTo: destFolder
-                )
-                filePairs.append((src: srcFile, dest: sequencedDestFile))
-            } else {
-                filePairs.append((src: srcFile, dest: destFile))
-            }
-        }
-
-        return filePairs
     }
 }
 
