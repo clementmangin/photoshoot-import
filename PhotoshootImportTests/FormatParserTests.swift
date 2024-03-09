@@ -342,20 +342,20 @@ final class FormatParserTests: XCTestCase {
             FormatParser.get(property: .path, forFile: url),
             "folder/subfolder/"
         )
-//        TODO: find a solution to test these file properties
-//        url.setTemporaryResourceValue(
-//            "2024-01-01 13:12:11".asDate(withFormat: "yyyy-MM-dd HH:mm:ss"),
-//            forKey: .creationDateKey)
-//        XCTAssertEqual(
-//            FormatParser.get(property: .modificationDate(), forFile: url),
-//            "20240203")
-//        url.setTemporaryResourceValue(
-//            "2024-02-10 01:02:03".asDate(withFormat: "yyyy-MM-dd HH:mm:ss"),
-//            forKey: .contentModificationDateKey)
-//        XCTAssertEqual(
-//            FormatParser.get(property: .creationDate(), forFile: url),
-//            "20240203"
-//        )
+        //        TODO: find a solution to test these file properties
+        //        url.setTemporaryResourceValue(
+        //            "2024-01-01 13:12:11".asDate(withFormat: "yyyy-MM-dd HH:mm:ss"),
+        //            forKey: .creationDateKey)
+        //        XCTAssertEqual(
+        //            FormatParser.get(property: .modificationDate(), forFile: url),
+        //            "20240203")
+        //        url.setTemporaryResourceValue(
+        //            "2024-02-10 01:02:03".asDate(withFormat: "yyyy-MM-dd HH:mm:ss"),
+        //            forKey: .contentModificationDateKey)
+        //        XCTAssertEqual(
+        //            FormatParser.get(property: .creationDate(), forFile: url),
+        //            "20240203"
+        //        )
     }
 
     func testContainsExif() {
@@ -397,20 +397,6 @@ final class FormatParserTests: XCTestCase {
                 FormatParser.FormatElement.exif(property: .property(tag: "DateTimeOriginal")),
             ].exifTags(),
             Set(["DateTimeOriginal", "ImageSize"])
-        )
-    }
-
-    func testURLAppend() {
-        // File with extension
-        XCTAssertEqual(
-            URL(filePath: "folder/file.jpeg").append(sequence: 10),
-            URL(filePath: "folder/file 10.jpeg")
-        )
-
-        // File with no extension
-        XCTAssertEqual(
-            URL(filePath: "folder/file").append(sequence: 10),
-            URL(filePath: "folder/file 10")
         )
     }
 

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		EB4747D42B9429CE000F0CF7 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = EB4747D32B9429CE000F0CF7 /* LICENSE */; };
 		EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB69650B2B95163A00F91660 /* SettingsTests.swift */; };
+		EB7A013D2B9CF8D00071BF6B /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A013C2B9CF8D00071BF6B /* URLExtensions.swift */; };
+		EB7A013E2B9CF8D00071BF6B /* URLExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A013C2B9CF8D00071BF6B /* URLExtensions.swift */; };
+		EB7A01412B9CF9040071BF6B /* URLExtensionsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB7A01402B9CF9040071BF6B /* URLExtensionsTests.swift */; };
 		EB9B821F2B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
 		EB9B82202B9680AF005F198D /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B821E2B9680AF005F198D /* DateUtils.swift */; };
 		EB9B82222B96B7F1005F198D /* DateUtilsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */; };
@@ -47,6 +50,8 @@
 		EB4747D32B9429CE000F0CF7 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
 		EB69650A2B950A6000F91660 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		EB69650B2B95163A00F91660 /* SettingsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTests.swift; sourceTree = "<group>"; };
+		EB7A013C2B9CF8D00071BF6B /* URLExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensions.swift; sourceTree = "<group>"; };
+		EB7A01402B9CF9040071BF6B /* URLExtensionsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLExtensionsTests.swift; sourceTree = "<group>"; };
 		EB9B821E2B9680AF005F198D /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateUtils.swift; sourceTree = "<group>"; };
 		EB9B82212B96B7F1005F198D /* DateUtilsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateUtilsTests.swift; sourceTree = "<group>"; };
 		EB9E62732B91965B00C49EAF /* PhotoshootImport.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoshootImport.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -86,6 +91,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EB7A013F2B9CF8DB0071BF6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB7A013C2B9CF8D00071BF6B /* URLExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EB9E626A2B91965B00C49EAF = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +106,7 @@
 				EBABE22E2B92471300514928 /* Settings */,
 				EBABE2202B9232DD00514928 /* Utils */,
 				EB9E62752B91965B00C49EAF /* PhotoshootImport */,
+				EB7A013F2B9CF8DB0071BF6B /* Extensions */,
 				EB9E62872B91965D00C49EAF /* PhotoshootImportTests */,
 				EB69650A2B950A6000F91660 /* README.md */,
 				EB4747D32B9429CE000F0CF7 /* LICENSE */,
@@ -135,6 +149,7 @@
 				EBABE23D2B93DF8A00514928 /* FormatParserTests.swift */,
 				EB9E62882B91965D00C49EAF /* PhotoshootImportTests.swift */,
 				EB69650B2B95163A00F91660 /* SettingsTests.swift */,
+				EB7A01402B9CF9040071BF6B /* URLExtensionsTests.swift */,
 			);
 			path = PhotoshootImportTests;
 			sourceTree = "<group>";
@@ -284,6 +299,7 @@
 				EB9B821F2B9680AF005F198D /* DateUtils.swift in Sources */,
 				EB9E62792B91965B00C49EAF /* ImportPhotoshootView.swift in Sources */,
 				EB9E62772B91965B00C49EAF /* PhotoshootImportApp.swift in Sources */,
+				EB7A013D2B9CF8D00071BF6B /* URLExtensions.swift in Sources */,
 				EBABE2222B9232FF00514928 /* FileUtils.swift in Sources */,
 				EBABE2332B92549E00514928 /* ImportPhotoshoot.swift in Sources */,
 			);
@@ -298,9 +314,11 @@
 				EBABE2362B9270DC00514928 /* FormatParser.swift in Sources */,
 				EB69650C2B95163A00F91660 /* SettingsTests.swift in Sources */,
 				EBABE2372B9270E300514928 /* ImportPhotoshoot.swift in Sources */,
+				EB7A01412B9CF9040071BF6B /* URLExtensionsTests.swift in Sources */,
 				EB9B82202B9680AF005F198D /* DateUtils.swift in Sources */,
 				EBABE23A2B9270F100514928 /* ExifTool.swift in Sources */,
 				EBABE2382B9270E600514928 /* Settings.swift in Sources */,
+				EB7A013E2B9CF8D00071BF6B /* URLExtensions.swift in Sources */,
 				EB9E62892B91965D00C49EAF /* PhotoshootImportTests.swift in Sources */,
 				EBABE2392B9270EE00514928 /* FileUtils.swift in Sources */,
 			);

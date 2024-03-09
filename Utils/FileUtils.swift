@@ -189,12 +189,3 @@ extension DependencyValues {
         set { self[FileUtilsClient.self] = newValue }
     }
 }
-
-extension URL {
-    func append(sequence: Int) -> URL {
-        return URL(
-            filePath:
-                "\(self.deletingPathExtension().path()) \(sequence)\(self.pathExtension.isEmpty ? "" : ".\(self.pathExtension)")"
-        )
-    }
-}
