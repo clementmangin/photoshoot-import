@@ -114,6 +114,7 @@ struct ImportPhotoshootFeature {
         Reduce { state, action in
             switch action {
             case .binding:
+                guard state.jobState != .running else { return .none }
                 state.jobState = isReady(state) ? .ready : .notReady
                 return .none
             case .srcFolderButtonTapped:
