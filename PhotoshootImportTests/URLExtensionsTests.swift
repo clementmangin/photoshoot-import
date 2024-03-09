@@ -21,5 +21,12 @@ final class URLExtensionsTests: XCTestCase {
             URL(filePath: "folder/file").append(sequence: 10),
             URL(filePath: "folder/file 10")
         )
+
+        // File with base path
+        XCTAssertEqual(
+            URL(filePath: "folder/file.jpeg", relativeTo: URL(filePath: "/Users/user/")).append(
+                sequence: 10),
+            URL(filePath: "folder/file 10.jpeg", relativeTo: URL(filePath: "/Users/user/"))
+        )
     }
 }

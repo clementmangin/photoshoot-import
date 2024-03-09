@@ -11,7 +11,8 @@ extension URL {
     func append(sequence: Int) -> URL {
         return URL(
             filePath:
-                "\(self.deletingPathExtension().path()) \(sequence)\(self.pathExtension.isEmpty ? "" : ".\(self.pathExtension)")"
+                "\(self.deletingPathExtension().path()) \(sequence)\(self.pathExtension.isEmpty ? "" : ".\(self.pathExtension)")",
+            relativeTo: self.baseURL
         )
     }
 }
