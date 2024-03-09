@@ -85,7 +85,7 @@ struct ImportPhotoshootFeature {
     ) async -> [(src: URL, dest: URL)] {
 
         return await withCheckedContinuation { continuation in
-            Task(priority: .userInitiated) {
+            Task(priority: .utility) {
                 let formatContainsRelativeSequence = format.contains {
                     switch $0 {
                     case .sequence(type: .local(_)):
@@ -146,7 +146,7 @@ struct ImportPhotoshootFeature {
         return filePairs
     }
 
-    private func importFiles(pairs: [(src: URL, dest: URL)], importMode: ImportMode) async {
+    private func importFiles(pairs: [(src: URL, dest: URL)], importMode: ImportMode) async throws {
         let importFunction: (_ at: URL, _ to: URL) throws -> Void
         switch importMode {
         case .copy:
@@ -156,7 +156,7 @@ struct ImportPhotoshootFeature {
             importFunction = moveFile
             break
         }
-        return await withCheckedContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             Task(priority: .utility) {
                 // Optimization: builds a set of unique folders to create (if any),
                 // instead of attempting to create the same folders multiple times
@@ -175,6 +175,8 @@ struct ImportPhotoshootFeature {
                             } catch let error as CocoaError where error.code == .fileWriteFileExists
                             {
                                 sequence += 1
+                            } catch {
+                                continuation.resume(throwing: error)
                             }
                         } while !success
                     }
@@ -195,7 +197,7 @@ struct ImportPhotoshootFeature {
             srcFiles: srcFiles, inSrcFolder: srcFolder, toDestFolder: destFolder,
             withFormat: format, exifMethod: getExifMetadata)
 
-        await importFiles(pairs: filePairs, importMode: importMode)
+        try await importFiles(pairs: filePairs, importMode: importMode)
 
         return filePairs.count
     }
