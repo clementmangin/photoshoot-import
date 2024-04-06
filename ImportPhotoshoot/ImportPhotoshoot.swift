@@ -83,45 +83,43 @@ struct ImportPhotoshootFeature {
         filesWithMetadata: [(file: URL, metadata: [String: String]?)],
         format: [FormatParser.FormatElement], destFolder: URL
     ) async -> [(src: URL, dest: URL)] {
-
-        return await withCheckedContinuation { continuation in
-            Task(priority: .utility) {
-                let formatContainsRelativeSequence = format.contains {
-                    switch $0 {
-                    case .sequence(type: .local(_)):
-                        return true
-                    default:
-                        return false
-                    }
+        let task = Task(priority: .utility) {
+            let formatContainsRelativeSequence = format.contains {
+                switch $0 {
+                case .sequence(type: .local(_)):
+                    return true
+                default:
+                    return false
                 }
-                var fileRanks: [URL: Int] = [:]
-                var filePairs: [(src: URL, dest: URL)] = []
-                for (index, srcFileWithMetadata) in filesWithMetadata.sorted(by: {
-                    $0.file.absoluteString < $1.file.absoluteString
-                })
-                .enumerated() {
-                    let srcFile = srcFileWithMetadata.file
-                    let exifMetadata = srcFileWithMetadata.metadata
-                    let destFile = FormatParser.format(
-                        file: srcFile, exifMetadata: exifMetadata, withFormat: format,
-                        absoluteSequenceNumber: index + 1, relativeTo: destFolder)
-
-                    if formatContainsRelativeSequence {
-                        let rank = fileRanks[destFile.deletingLastPathComponent(), default: 0] + 1
-                        fileRanks[destFile.deletingLastPathComponent()] = rank
-                        let sequencedDestFile = FormatParser.format(
-                            file: srcFile, exifMetadata: exifMetadata, withFormat: format,
-                            absoluteSequenceNumber: index + 1, relativeSequenceNumber: rank,
-                            relativeTo: destFolder
-                        )
-                        filePairs.append((src: srcFile, dest: sequencedDestFile))
-                    } else {
-                        filePairs.append((src: srcFile, dest: destFile))
-                    }
-                }
-                continuation.resume(returning: filePairs)
             }
+            var fileRanks: [URL: Int] = [:]
+            var filePairs: [(src: URL, dest: URL)] = []
+            for (index, srcFileWithMetadata) in filesWithMetadata.sorted(by: {
+                $0.file.absoluteString < $1.file.absoluteString
+            })
+            .enumerated() {
+                let srcFile = srcFileWithMetadata.file
+                let exifMetadata = srcFileWithMetadata.metadata
+                let destFile = FormatParser.format(
+                    file: srcFile, exifMetadata: exifMetadata, withFormat: format,
+                    absoluteSequenceNumber: index + 1, relativeTo: destFolder)
+
+                if formatContainsRelativeSequence {
+                    let rank = fileRanks[destFile.deletingLastPathComponent(), default: 0] + 1
+                    fileRanks[destFile.deletingLastPathComponent()] = rank
+                    let sequencedDestFile = FormatParser.format(
+                        file: srcFile, exifMetadata: exifMetadata, withFormat: format,
+                        absoluteSequenceNumber: index + 1, relativeSequenceNumber: rank,
+                        relativeTo: destFolder
+                    )
+                    filePairs.append((src: srcFile, dest: sequencedDestFile))
+                } else {
+                    filePairs.append((src: srcFile, dest: destFile))
+                }
+            }
+            return filePairs
         }
+        return await task.value
     }
 
     private func prepareImport(
@@ -156,34 +154,30 @@ struct ImportPhotoshootFeature {
             importFunction = moveFile
             break
         }
-        return try await withCheckedThrowingContinuation { continuation in
-            Task(priority: .utility) {
-                // Optimization: builds a set of unique folders to create (if any),
-                // instead of attempting to create the same folders multiple times
-                try Set(pairs.map { $1.deletingLastPathComponent() }).forEach(createDirectory)
+        let task = Task(priority: .utility) {
+            // Optimization: builds a set of unique folders to create (if any),
+            // instead of attempting to create the same folders multiple times
+            try Set(pairs.map { $1.deletingLastPathComponent() }).forEach(createDirectory)
 
-                for (src, dest) in pairs {
-                    do {
-                        try importFunction(src, dest)
-                    } catch let error as CocoaError where error.code == .fileWriteFileExists {
-                        var success = false
-                        var sequence = 1
-                        repeat {
-                            do {
-                                try importFunction(src, dest.append(sequence: sequence))
-                                success = true
-                            } catch let error as CocoaError where error.code == .fileWriteFileExists
-                            {
-                                sequence += 1
-                            } catch {
-                                continuation.resume(throwing: error)
-                            }
-                        } while !success
-                    }
+            for (src, dest) in pairs {
+                do {
+                    try importFunction(src, dest)
+                } catch let error as CocoaError where error.code == .fileWriteFileExists {
+                    var success = false
+                    var sequence = 1
+                    repeat {
+                        do {
+                            try importFunction(src, dest.append(sequence: sequence))
+                            success = true
+                        } catch let error as CocoaError where error.code == .fileWriteFileExists
+                        {
+                            sequence += 1
+                        }
+                    } while !success
                 }
-                continuation.resume()
             }
         }
+        _ = try await task.value
     }
 
     private func importPhotos(
